@@ -9,9 +9,10 @@ class HomePage extends StatelessWidget {
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
-            //   image: DecorationImage(
-            //      image: AssetImage("assets/tt.png"),
-            //     ),
+            image: DecorationImage(
+              alignment: Alignment.topCenter,
+              image: AssetImage("assets/re.png"),
+            ),
             gradient: LinearGradient(
               //  begin: Alignment.topLeft,
               //   end: Alignment.bottomRight,
@@ -24,7 +25,10 @@ class HomePage extends StatelessWidget {
                   flex: 2,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [Text("want image here")],
+                    children: [
+                      //    Image.asset("assets/re.png"),
+                      //     Text("want image here")
+                    ],
                   )),
               Expanded(
                 flex: 5,
@@ -90,7 +94,7 @@ class HomePage extends StatelessWidget {
                           child: ElevatedButton(
                             style: ButtonStyle(
                                 backgroundColor: MaterialStateProperty.all(
-                                    Colors.deepOrange[100]),
+                                    Colors.deepOrange[200]),
                                 shape: MaterialStateProperty.all<
                                         RoundedRectangleBorder>(
                                     RoundedRectangleBorder(
@@ -131,28 +135,38 @@ class HomePage extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Container(
-                              width: MediaQuery.of(context).size.width / 4,
-                              height: MediaQuery.of(context).size.height / 9,
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage(
-                                    "assets/google.png",
-                                  ),
+                            Expanded(
+                              child: BuildButton(
+                                iconImage: Image(
+                                  height: 40,
+                                  width: 40,
+                                  image: AssetImage('assets/googlesmall.png'),
                                 ),
-                                //   color: Colors.red,
-                                borderRadius: BorderRadius.circular(22),
                               ),
                             ),
-                            Container(
-                              width: MediaQuery.of(context).size.width / 4,
-                              height: MediaQuery.of(context).size.height / 9,
-                              color: Colors.blue,
+                            SizedBox(
+                              width: 8,
                             ),
-                            Container(
-                              width: MediaQuery.of(context).size.width / 4,
-                              height: MediaQuery.of(context).size.height / 9,
-                              color: Colors.black,
+                            Expanded(
+                              child: BuildButton(
+                                iconImage: Image(
+                                  height: 40,
+                                  width: 40,
+                                  image: AssetImage('assets/apple.png'),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 8,
+                            ),
+                            Expanded(
+                              child: BuildButton(
+                                iconImage: Image(
+                                  height: 40,
+                                  width: 40,
+                                  image: AssetImage('assets/face.png'),
+                                ),
+                              ),
                             ),
                           ],
                         )
@@ -163,6 +177,31 @@ class HomePage extends StatelessWidget {
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class BuildButton extends StatelessWidget {
+  final Image iconImage;
+  BuildButton({required this.iconImage});
+  @override
+  Widget build(BuildContext context) {
+    var mediaQuery = MediaQuery.of(context).size;
+    return Container(
+      //   height: mediaQuery.height * 0.06,
+      //     width: mediaQuery.width * 0.1,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(color: Colors.grey[300]!)),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            iconImage,
+          ],
         ),
       ),
     );
