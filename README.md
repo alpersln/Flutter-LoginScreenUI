@@ -1,8 +1,9 @@
 # ui_exercise2
 
 A new Flutter project.
-
+![Android Emulator - Pixel_2_API_30_5554 30 10 2021 12_58_28](https://user-images.githubusercontent.com/80425427/141315192-b6b5f47f-1f84-4451-af32-e69ca1a41b92.png)
 ## Getting Started
+
 
 This project is a starting point for a Flutter application.
 
